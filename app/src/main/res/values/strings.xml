@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">01 [memo]</string>
+    <string name="button">Button</string>
+    <string name="sub">Sub Activity</string>
+    <string name="return_sub">完了</string>
+    <string name="msg_destruction">文書を破棄しました。</string>
+    <string name="sub_title">編集画面</string>
+</resources>
