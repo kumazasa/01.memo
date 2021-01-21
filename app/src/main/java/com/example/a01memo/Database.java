@@ -29,7 +29,7 @@ public class Database extends SQLiteOpenHelper {
 
     //メッセージの検索
     public Cursor GetMessage(){
-
+    //ここまで
     }
 
 }
