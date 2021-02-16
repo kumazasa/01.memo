@@ -44,16 +44,14 @@ public class SecondActivity extends AppCompatActivity {
         toast.show();
 
         //テキストの位置（？）
-        if(TEXT_POSITION != -1) {
-            ((Database) help).deleteMemo(msg);
-        }
+
 
         //入力内容の取得
         EditText message = (EditText) findViewById(R.id.message);
         String messageText = message.getText().toString();
 
         //入力内容の受け渡し
-        boolean insertData = ((Database) help).insertMemo(messageText);
+        Database insertData = ((Database) help);
         Intent intent = new Intent(SecondActivity.this, MainActivity.class);
         startActivity(intent);
     }
@@ -69,7 +67,6 @@ public class SecondActivity extends AppCompatActivity {
         builder.setPositiveButton("はい", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int which) {
-                ((Database) help).deleteMemo(msg);
                 CharSequence text = "削除されました";
                 int duration = Toast.LENGTH_SHORT;
                 Toast toast = Toast.makeText(SecondActivity.this, text, duration);

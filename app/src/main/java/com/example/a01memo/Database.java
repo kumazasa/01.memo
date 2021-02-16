@@ -5,6 +5,10 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.text.Normalizer;
+
+import static android.icu.text.MessagePattern.ArgType.SELECT;
+
 public class Database extends SQLiteOpenHelper {
 
     private static final String DB_NAME = "memo.db";
@@ -18,7 +22,7 @@ public class Database extends SQLiteOpenHelper {
     //テーブルの初期化
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE" + MEMO_TABLE + " ("
+        db.execSQL(" CREATE TABLE " + MEMO_TABLE + " ("
         + "_id INTEGER PRIMARY KEY AUTOINCREMENT,"
         + "MESSAGE TEXT);");
     }
@@ -27,9 +31,18 @@ public class Database extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldV, int newV) {
     }
 
-    //メッセージの検索
-    public Cursor GetMessage(){
-    //ここまで
+    //メッセージの取り出し
+    public Cursor Uketori(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor c = db.rawQuery(" SELECT * FROM " + MEMO_TABLE, new String[] {});
+        return c;
     }
+
+    //メッセージの取り出し（並べ替え)
+    public Cursor SortUketori(){
+
+    }
+
+
 
 }
